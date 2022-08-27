@@ -1,0 +1,66 @@
+
+<head>
+
+<link rel="stylesheet"
+	href="../css/detail.css" />
+<link rel="stylesheet"
+	href="../css/card.css" />
+</head>
+<body>
+
+
+	
+	<main class="main">
+		<div class="crearHost">
+		<a class="link" data-ng-href="#!/user/insertHosting"  
+		>Crear Alojamiento</a>
+		</div>
+			<div class="container" data-ng-repeat="host in listVM.categories">
+				<h2>{{host.key.title}}</h2>
+				<div class="row">
+
+					<div class="column">
+						<img src="../images/House1.jpg"
+							alt="TestHouse" /> <img
+							src="../images/piscina-lujo.jpg"
+							alt="TestHouse" />
+					</div>
+					<div class="column">
+						<img
+							src="../images/piscina-lujo2.jpg"
+							alt="TestHouse" /> <img
+							src="../images/piscina-lujo3.jpg"
+							alt="TestHouse" />
+					</div>
+					<div class="column">
+						<p>{{host.key.description}}</p>
+						<p>{{host.key.location}}</p>
+						<p>{{host.key.telephone}}</p>
+						<p>{{host.key.price}} €/noche</p>
+						<p>Correo de contacto: {{host.key.contactEmail}}</p>
+						<p>Categoria:</p>
+						<div data-ng-repeat="cat in host.value" >
+							{{cat.name}}
+						</div>
+						<p>Servicios extra:</p>
+						 <div data-ng-repeat="serv in listVM.services" >
+							<div data-ng-if="serv.key.id == host.key.id">	
+								<div data-ng-repeat="se in serv.value"> 	
+									{{se.name}}
+								</div>
+							</div>
+						</div>
+						 	
+						<p>Likes: {{host.key.likes}}</p>
+		    			<h4 data-ng-show="host.key.available==1">Reservado</h4>
+		    			<h4 data-ng-show="host.key.available==0">Disponible</h4>
+						
+						<div class="modificar" data-ng-controller="hostingHandlerCtrl as hostingHandlerVM">
+							<a class="link" data-ng-href="#!/user/editHosting/{{ host.key.id }}" name="editHost" >Editar</a>
+							<button class="mod" type="submit" name="deleteHost" value="delete" data-ng-click="hostingHandlerVM.functions.deleteHosts(host.key.id)" >Delete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</main>
+</body>

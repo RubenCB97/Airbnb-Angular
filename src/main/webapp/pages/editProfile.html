@@ -1,0 +1,49 @@
+
+<head>
+<link rel="stylesheet" href="../css/menu.css" />
+<link rel="stylesheet" href="../css/user.css" />
+</head>
+
+<body>
+
+	<div class="editPerfil">
+	<div class="login-card">
+		<div class="title">
+			<b>{{userHandlerVM.user.username}} - Editar perfil</b>
+		</div>
+		
+		<form data-ng-submit="userHandlerVM.functions.updateUsers()" name="Formulario">
+
+			<p id="passP">Contraseña nueva</p>
+			<input class="input" type="password"
+				name="password" id="pass" placeholder="Contraseï¿½a"
+				data-ng-model="userHandlerVM.user.password" 
+				value="{{userHandlerVM.user.password}}"
+				required data-ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/"
+				 />
+			<p id="emailP">Cambiar email</p>
+			<input class="input" type="email"
+				name="email"
+				 id="email" placeholder="Email" 
+				data-ng-model="userHandlerVM.user.email"
+				value ="{{userHandlerVM.user.email}}" 
+				required/>
+		 <div>
+		 	<input id ="button" type="submit" value="Guardar cambios" />
+		</div>
+		</form>
+		<div>
+			<input type="submit" value="Eliminar Cuenta" data-ng-click="userHandlerVM.functions.deleteUsers()" />
+		</div>
+		<p class="error" data-ng-show="Formulario.email.$invalid">Email invalido</p>
+		<p class="error" data-ng-show="Formulario.password.$error.required">Contraseï¿½a requerida</p>
+		<p class="error" data-ng-show="Formulario.password.$error.pattern">Contraseï¿½a invalida, Debe contener al menos 8 caracteres donde:  1 Numero, 1 mayuscula y 1 minuscula como minimo</p>
+		<p  data-ng-if="userHandlerVM.errPass == 2 ">Usuario modificado</p>
+		
+	</div>
+	</div>	
+	
+	
+
+
+</body>

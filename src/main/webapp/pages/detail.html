@@ -1,0 +1,63 @@
+
+<head>
+
+<link rel="stylesheet"
+	href="../css/detail.css" />
+</head>
+
+<body>
+
+	<main class="main">
+		<div class="container" >
+			<h2>{{hostingHandlerVM.myHost.title}}</h2>
+			
+			<div class="row">
+				<div class="column">
+					<img src="../images/House1.jpg"
+						alt="TestHouse" /> <img
+						src="../images/piscina-lujo.jpg"
+						alt="TestHouse" />
+				</div>
+				<div class="column">
+					<img
+						src="../images/piscina-lujo2.jpg"
+						alt="TestHouse" /> <img
+						src="../images/piscina-lujo3.jpg"
+						alt="TestHouse" />
+				</div>
+				<div class="column">
+					<h3>{{hostingHandlerVM.myHost.price}} �/noche</h3>
+					<p>{{hostingHandlerVM.myHost.description}}</p>
+					<p>{{hostingHandlerVM.myHost.location}}</p>
+					<p>Tlf: {{hostingHandlerVM.myHost.telephone}}</p>
+					<p>Correo de contacto:{{hostingHandlerVM.myHost.contactEmail}}</p>
+					<p>Categoria:</p>
+						<div data-ng-repeat="cat in hostingHandlerVM.categories">
+								{{cat.name}}
+						</div>	
+    				
+					<p>Servicios:</p>
+						<div data-ng-repeat="serv in hostingHandlerVM.services">
+									{{serv.name}}
+							</div>
+							
+						<p>Likes: {{hostingHandlerVM.myHost.likes}}</p>
+					<div class="like">
+						<div data-ng-if="hostingHandlerVM.like == 0">
+							<button
+								data-ng-click="hostingHandlerVM.functions.addLike(hostingHandlerVM.myHost.id)">Dar Like
+							</button>
+						</div>
+						<div data-ng-if="hostingHandlerVM.like == 1">
+							<button
+								data-ng-click="hostingHandlerVM.functions.removeLike(hostingHandlerVM.myHost.id)">Quitar Like
+							</button>
+						</div>	
+					</div>
+					<h4 data-ng-show="hostingHandlerVM.myHost.available==1">Reservado</h4>
+		    		<h4 data-ng-show="hostingHandlerVM.myHost.available==0">Disponible</h4>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>

@@ -1,0 +1,96 @@
+
+<head>
+
+<link rel="stylesheet"
+	href="../css/detail.css" />
+<link rel="stylesheet"
+	href="../css/card.css" />
+</head>
+<body>
+
+	
+
+	<main class="main">
+
+		<form data-ng-submit="hostingHandlerVM.functions.updateHosts()" name="Formulario">
+			
+			<div class="container">
+				<h2>
+					Titulo: <input class="input" required type="text" name="title" id="title"
+						placeholder="Titulo"
+						data-ng-model=hostingHandlerVM.host.title  />
+				</h2>
+				<div class="row">
+
+					<div class="column">
+						<img src="../images/House1.jpg"
+							alt="TestHouse" /> <img
+							src="../images/piscina-lujo.jpg"
+							alt="TestHouse" />
+					</div>
+					<div class="column">
+						<img
+							src="../images/piscina-lujo2.jpg"
+							alt="TestHouse" /> <img
+							src="../images/piscina-lujo3.jpg"
+							alt="TestHouse" />
+					</div>
+					<div class="column">
+						<p>Descripcion:</p>
+						<textarea name="description" data-ng-model=hostingHandlerVM.host.description id="description">{{hostingHandlerVM.host.description}}</textarea>
+
+						<p>Location:</p>
+						<input class="input" type="text" name="location" id="location"
+							data-ng-model="hostingHandlerVM.host.location " />
+
+						<p>Tlf:</p>
+						<input class="input" type="tel" name="telephone" id="telephone"
+							data-ng-model="hostingHandlerVM.host.telephone" />
+
+						<p>Precio:</p>
+						<input class="input" type="number" name="price" id="price"
+							data-ng-model="hostingHandlerVM.host.price"  />
+
+						<p>Correo de contacto:</p>
+						<input class="input" type="email" name="contactEmail" id="contactEmail" 
+						data-ng-model="hostingHandlerVM.host.contactEmail" required/>
+
+						<p>Categoria:</p>
+							<div data-ng-repeat="cat in hostingHandlerVM.allCategories">
+									<input  type="checkbox" name="categories" id="categories"
+										 data-ng-click="hostingHandlerVM.functions.addCategories(cat.name)" data-ng-checked="hostingHandlerVM.functions.checkCategories(cat.name)"/>
+									<label for="categories">{{cat.name}}</label>
+							</div>	
+						
+
+						<p>Servicios:</p>
+							<div data-ng-repeat="serv in hostingHandlerVM.allServices">
+									<input  type="checkbox" name="services" id="services"
+										data-ng-click="hostingHandlerVM.functions.addServices(serv.name)" data-ng-checked="hostingHandlerVM.functions.checkServices(serv.name)"/>
+									<label for="services">{{serv.name}}</label>
+							</div>	
+
+						<div>
+							<input type="radio" name="state" id="available" value="0" 
+								data-ng-checked="hostingHandlerVM.host.available==0"
+								data-ng-model="hostingHandlerVM.host.available">
+							<label for="available">Disponible </label>
+							<input type="radio" name="state" id="Booked" value="1"
+								data-ng-checked="hostingHandlerVM.host.available==1" 
+								data-ng-model="hostingHandlerVM.host.available"/>
+							<label for="Booked">Reservado </label>
+					
+						</div>
+						<div>
+							<input class="create" type="submit" value="Editar" />
+						</div>
+						<p class="error" data-ng-show="Formulario.contactEmail.$invalid">Email invalido</p>
+						<p class="error" data-ng-show="Formulario.title.$invalid">Título necesario</p>
+						
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+

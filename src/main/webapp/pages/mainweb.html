@@ -1,0 +1,124 @@
+
+<head>
+<link rel="stylesheet" href="../css/catalogue.css" />
+<link rel="stylesheet" href="../css/card.css" />
+</head>
+
+<body>
+
+	<main class="main">
+
+		<div class="search">
+
+				<input type="search" id="site-search" name="search"
+					aria-label="Search through site content" data-ng-model="search" />
+				<button id="button-search">Buscar</button>
+
+
+			
+				<div class="SelecLike">
+					<label class="TextLike" for="MinLike"> Likes desde: </label> 
+					<input class="InputLike" data-ng-model="listVM.filterLikes" type="number" name="MinLike" id="MinLike"
+						placeholder="Likes M�nimo" data-ng-change="listVM.functions.filterByLikes()">
+				</div>
+				
+				<div class="SelecPrice">
+					<label class="TextLike" for="MinPrice"> Precios desde: </label> 
+						<input class="InputLike" data-ng-model="listVM.priceMin" type="number" name="MinPrice" id="MinPrice"
+						placeholder="Precio M�nimo" data-ng-change="listVM.functions.filterByPrice()">
+					<label class="TextLike" for="MaxPrice"> Precios hasta: </label> 
+						<input class="InputLike" data-ng-model="listVM.priceMax" type="number" name="MaxPrice" id="MaxPrice"
+						placeholder="Precio Máximo" data-ng-change="listVM.functions.filterByPrice()">
+				</div>
+			<div class="button">
+				<button data-ng-click="listVM.functions.shortByMaxLikes()">Mas favoritos</button>
+				<button data-ng-click="listVM.functions.shortByMinLikes()">Menos favoritos</button>
+				<button data-ng-click="listVM.functions.filterByAllHosting()">Todos los alojamientos</button>
+				<button data-ng-click="listVM.functions.filterByAvailable()">Alojamientos disponibles</button>
+				<button data-ng-click="listVM.functions.filterByNotAviable()">Alojamientos reservados</button>
+			</div>
+		
+			<label class="TextLike" for="prov"> Localidad: </label> 
+			<select name="provincia" data-ng-click="listVM.functions.filterByLocation()" id="prov" data-ng-model="listVM.location" >
+            <option value='selecciona'>Selecciona</option>
+            <option value='A Coru�a' >A Coru�a</option>
+            <option value='�lava'>�lava</option>
+            <option value='Albacete' >Albacete</option>
+            <option value='Alicante'>Alicante</option>
+            <option value='Almer�a' >Almer�a</option>
+            <option value='Asturias' >Asturias</option>
+            <option value='�vila' >�vila</option>
+            <option value='Badajoz' >Badajoz</option>
+            <option value='Barcelona'>Barcelona</option>
+            <option value='Burgos' >Burgos</option>
+            <option value='C�ceres' >C�ceres</option>
+            <option value='C�diz' >C�diz</option>
+            <option value='Cantabria' >Cantabria</option>
+            <option value='Castell�n' >Castell�n</option>
+            <option value='Ceuta' >Ceuta</option>
+            <option value='Ciudad Real' >Ciudad Real</option>
+            <option value='C�rdoba' >C�rdoba</option>
+            <option value='Cuenca' >Cuenca</option>
+            <option value='Gerona' >Gerona</option>
+            <option value='Girona' >Girona</option>
+            <option value='Las Palmas' >Las Palmas</option>
+            <option value='Granada' >Granada</option>
+            <option value='Guadalajara' >Guadalajara</option>
+            <option value='Guip�zcoa' >Guip�zcoa</option>
+            <option value='Huelva' >Huelva</option>
+            <option value='Huesca' >Huesca</option>
+            <option value='Ja�n' >Ja�n</option>
+            <option value='La Rioja' >La Rioja</option>
+            <option value='Le�n' >Le�n</option>
+            <option value='Lleida' >Lleida</option>
+            <option value='Lugo' >Lugo</option>
+            <option value='Madrid' >Madrid</option>
+            <option value='Malaga' >M�laga</option>
+            <option value='Mallorca' >Mallorca</option>
+            <option value='Melilla' >Melilla</option>
+            <option value='Murcia' >Murcia</option>
+            <option value='Navarra' >Navarra</option>
+            <option value='Orense' >Orense</option>
+            <option value='Palencia' >Palencia</option>
+            <option value='Pontevedra'>Pontevedra</option>
+            <option value='Salamanca'>Salamanca</option>
+            <option value='Segovia' >Segovia</option>
+            <option value='Sevilla' >Sevilla</option>
+            <option value='Soria' >Soria</option>
+            <option value='Tarragona' >Tarragona</option>
+            <option value='Tenerife' >Tenerife</option>
+            <option value='Teruel' >Teruel</option>
+            <option value='Toledo' >Toledo</option>
+            <option value='Valencia' >Valencia</option>
+            <option value='Valladolid' >Valladolid</option>
+            <option value='Vizcaya' >Vizcaya</option>
+            <option value='Zamora' >Zamora</option>
+            <option value='Zaragoza'>Zaragoza</option>
+          </select>
+		</div>
+
+		<div class="container">
+
+			<div class="card" data-ng-repeat="host in listVM.allHosting | filter:search">
+				<a data-ng-href="#!/hosting/{{host.id}}">  
+				<img class="card-image"
+					src="../images/House1.jpg" alt="TestHouse" />
+				</a>
+				<div class="card-text">
+					<div class="title">
+						<span>{{host.title}}</span>
+					</div>
+					<div class="subtitle">
+						<span>{{host.location}}</span> 
+						<span>{{host.price}} �/noche</span>
+						<span>Likes: {{host.likes}}</span>
+						<span data-ng-show="host.available==1">Reservado</span>
+		    			<span data-ng-show="host.available==0">Disponible</span>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+</body>

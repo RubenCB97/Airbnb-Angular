@@ -1,0 +1,116 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  letter-spacing: 0.03em;
+}
+.main {
+  padding-top: 5rem;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  
+}
+.TextLike{
+	font-size: 15px;
+
+}
+.InputLike{
+	border-radius: 7px;
+    border: 2px solid #d1d1d1;
+    margin-right: 20px;
+}
+.search button{
+	 height: 32px;
+    margin: 4px;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+    
+}
+
+
+.search button:hover{
+  background-color: #d1d1d1;
+}
+
+.form-control {
+  border-radius: 10px;
+  height: 30px;
+  border: 1px solid #d3d2d2;
+}
+#site-search{
+  height: 32px;
+    margin-left: 7px;
+    margin-right: 4px;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+}
+
+#button-search{
+  height: 32px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+}
+
+#button-search:hover{
+  background-color: #d1d1d1;
+}
+
+.container {
+  margin-left: 48px;
+  margin-right: 48px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.container .image {
+  width: 250px;
+  height: 220px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  margin-bottom: 100px;
+  margin-right: 1%;
+}
+.container .image:last-child {
+  margin-right: 0;
+}
+.container .image:hover {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s;
+}
+
+.container .image img {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+}
+
+.container h4 {
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.container p {
+  font-weight: 200;
+  font-size: 13px;
+  color: #828282;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    justify-content: center;
+  }
+  
+  
+}

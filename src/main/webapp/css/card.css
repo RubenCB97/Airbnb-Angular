@@ -1,0 +1,39 @@
+.card {
+  width: 300px;
+  height: 272px;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-bottom: 48px;
+}
+.card:hover{
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: all 0.35s;
+}
+.card-image {
+  width: 300px;
+  height: 200px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-text {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+.title {
+  text-overflow: ellipsis;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.subtitle {
+  margin-top: 4px;
+  color: #838181;
+}

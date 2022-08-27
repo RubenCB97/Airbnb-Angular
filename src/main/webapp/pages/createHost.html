@@ -1,0 +1,72 @@
+
+<head>
+	<link rel="stylesheet"
+	href="../css/detail.css" />
+</head>
+<body>
+
+
+	
+	<main class="main">
+
+		<form data-ng-submit="hostingHandlerVM.functions.createHosts()" name="Formulario" >
+			<div class="container">
+				<h2>
+					Titulo: <input class="input" type="text" name="title" id="title"
+						placeholder="Titulo" required data-ng-model=hostingHandlerVM.host.title  />
+				</h2>
+					</div>
+					<div class="column">
+						<p>Descripcion:</p>
+						<textarea class="input" name="description" id="description"
+						data-ng-model=hostingHandlerVM.host.description>Descripción del alojamiento</textarea>
+
+						<p>Localización:</p>
+						<input class="input" type="text" name="location" required id="location"
+						data-ng-model="hostingHandlerVM.host.location"/>
+						<p>Tlf:</p>
+						<input class="input" type="tel" name="telephone"  id="telephone" 
+						data-ng-model="hostingHandlerVM.host.telephone" />
+						<p>Precio:</p>
+						<input class="input" type="number" name="price"  id="price" placeholder="0€" 
+						data-ng-model="hostingHandlerVM.host.price" />
+						<p>Correo de contacto:</p>
+						<input class="input" type="email" name="contactEmail" required id="contactEmail"
+						data-ng-model="hostingHandlerVM.host.contactEmail"/>
+						<p>Categoria:</p>
+							<div class="cat">
+								<div  data-ng-repeat="cat in hostingHandlerVM.allCategories">
+										<input  type="checkbox" name="categories" id="categories"
+										data-ng-click="hostingHandlerVM.functions.addCategories(cat.name)"/>
+										<label for="categories">{{cat.name}}</label>
+								</div>	
+							</div>
+						<p>Servicios:</p>
+							<div class="serv">
+							<div  data-ng-repeat="serv in hostingHandlerVM.allServices">
+										<input  type="checkbox" name="services" id="services"
+										data-ng-click="hostingHandlerVM.functions.addServices(serv.name)"/>
+										<label for="services">{{serv.name}}</label>
+								</div>
+							</div>
+							
+						<p>Estado:
+						<input type="radio" name="state" id="available" checked value="0" 
+						data-ng-model="hostingHandlerVM.host.available" required/> Disponible
+						<input type="radio" name="state" id="Booked" value="1" 
+						data-ng-model="hostingHandlerVM.host.available"/> Reservado
+						</p>
+						<div>
+							<input class="create" type="submit" value="Crear Alojamiento" />
+						</div>
+					</div>
+				<p class="error" data-ng-show="Formulario.contactEmail.$invalid">Email inválido</p>
+				<p class="error" data-ng-show="Formulario.title.$invalid">El titulo no puede estar vacío</p>
+				<p class="error" data-ng-show="Formulario.location.$invalid">La localización no puede estar vacía</p>
+					
+					
+		</form>
+
+	</main>
+</body>
+
